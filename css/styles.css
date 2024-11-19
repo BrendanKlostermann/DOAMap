@@ -1,0 +1,83 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: auto; /* Allow scrolling */
+}
+
+body {
+    background-color: black; /* Just a background color */
+}
+
+/* Create a container that will hold both the image and the pin points */
+#PinPointContainer {
+    width: 2048px; /* Fixed width of the image */
+    height: 1025px; /* Fixed height of the image */
+    position: relative;
+    overflow: visible; /* Enable scrolling within this container */
+    margin: 0 auto; /* Center it horizontally */
+    z-index: 0 !important;
+}
+
+/* Add your background image to the container */
+#PinPointContainer {
+    background-image: url('../assets/Equirectangular-projection.jpg');
+    background-size: 2048px 1025px; /* Image size */
+    background-repeat: no-repeat;
+    background-position: top left; /* Keeps it fixed */
+}
+
+/* Pinpoints will be placed inside the container */
+.pinpoint {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border-color: darkred;
+    border-style: solid;
+    border-width: 2px;
+    background-color: red;
+    position: absolute; /* Pinpoints are absolutely positioned relative to the container */
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    z-index: 5 !important;
+}
+
+.name-tag {
+    position: absolute; /* Adjust relative to pin */
+    top: -20px; /* Example offset above the pin */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white; /* Make it visible */
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-size: 12px;
+    display: none; /* Hidden by default */
+    z-index: 10 !important;
+}
+
+.pinpoint:hover .name-tag {
+    display: block; /* Show on hover */
+    z-index: 15;
+}
+
+/* Mobile-specific styles */
+@media (max-width: 768px) {
+    html, body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        overflow: auto; /* Allow scrolling on mobile */
+    }
+
+    #PinPointContainer {
+        width: 2048px;
+        height: 1025px;
+    }
+
+    .pinpoint {
+        width: 4px; /* Adjust pin size for mobile */
+        height: 4px;
+    }
+}
