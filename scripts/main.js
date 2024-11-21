@@ -12,7 +12,6 @@ document.addEventListener("DOMContentLoaded", () => {
             return response.json();
         })
         .then(data => {
-            console.log('Data received:', data);
             const dataArray = data.data;
 
             ProcessData(dataArray)
@@ -32,7 +31,6 @@ function ProcessData(data) {
         const x = ((longitude + 180) / 360) * 100;
 
         const adjustedY = 100-y;
-        console.log(x + ", " + y);
 
         const pin = document.createElement('div');
         const tag = document.createElement('span');
