@@ -4,7 +4,7 @@ console.log("Script is loaded.");
 document.addEventListener("DOMContentLoaded", () => {
     console.log("DOM has been loaded");
 
-    fetch('http://173.23.91.177:8080/FetchData')
+    fetch('https://api.mydoa.org/FetchData')
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
